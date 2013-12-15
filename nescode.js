@@ -169,12 +169,12 @@ function NESCode( settings ){
 		
 		var src1 = document.getElementById("_30lives_src1") || document.createElement("source");
 			src1.id = "_30lives_src1";
-			src1.src = "audio/Contra_G_Probotector_StageComplete.ogg";
+			src1.src = "http://mediahack.github.io/NES-Code/audio/Contra_G_Probotector_StageComplete.mp3";
 			src1.type = 'audio/mpeg; codecs="mp3"';
 
 		var src2 = document.getElementById("_30lives_src2") || document.createElement("source");
 			src2.id = "_30lives_src2";
-			src2.src = "https://github.com/mediahack/NES-Code/blob/development/example/audio/Contra_G_Probotector_StageComplete.ogg?raw=true";
+			src2.src = "http://mediahack.github.io/NES-Code/audio/Contra_G_Probotector_StageComplete.ogg";
 			src2.type = 'audio/ogg; codecs="vorbis"';
 
 		audio.appendChild(src2);
@@ -183,7 +183,7 @@ function NESCode( settings ){
 		var emb = document.getElementById("_30lives_emb") || document.createElement("embed");
 		emb.width = 100;
 		emb.height = 50;
-		emb.src = "https://github.com/mediahack/NES-Code/blob/development/example/audio/Contra_G_Probotector_StageComplete.mp3?raw=true";
+		emb.src = "http://mediahack.github.io/NES-Code/audio/Contra_G_Probotector_StageComplete.mp3";
 
 		audio.appendChild(emb);
 
