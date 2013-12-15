@@ -2,8 +2,8 @@
 * @name     NESCode jsApp - nescode.js
 * @project  NESCode
 * @author <codes>      mediaHACK - http://mediahack.com
-* @date         2010.12.09
-* @version      101209
+* @date         2013.12.15
+* @version      131215
 *
 * @licence  New BSD License.
 * @licence  Creative-Commons BY
@@ -13,7 +13,7 @@
 **/
 function NESCode( settings ){ 
 	
-	this.scriptHost = "http://nescode.googlecode.com/files/nescode.min.js";
+	this.scriptHost = "https://github.com/mediahack/NES-Code/";
 	this.settings = settings;
 	this.debug = false;
 	this.input = "";
@@ -165,14 +165,37 @@ function NESCode( settings ){
 	{ 
 		var nes = this;
 		var body = document.getElementsByTagName("body")[0];
-		var audio = document.getElementById("_30lives") || document.createElement("embed");				
+		var audio = document.getElementById("_30lives") || document.createElement("audio");				
 		
+		var src1 = document.getElementById("_30lives_src1") || document.createElement("source");
+			src1.id = "_30lives_src1";
+			src1.src = "audio/Contra_G_Probotector_StageComplete.ogg";
+			src1.type = 'audio/mpeg; codecs="mp3"';
+
+		var src2 = document.getElementById("_30lives_src2") || document.createElement("source");
+			src2.id = "_30lives_src2";
+			src2.src = "https://github.com/mediahack/NES-Code/blob/development/example/audio/Contra_G_Probotector_StageComplete.ogg?raw=true";
+			src2.type = 'audio/ogg; codecs="vorbis"';
+
+		audio.appendChild(src2);
+		audio.appendChild(src1);
+
+		var emb = document.getElementById("_30lives_emb") || document.createElement("embed");
+		emb.width = 100;
+		emb.height = 50;
+		emb.src = "https://github.com/mediahack/NES-Code/blob/development/example/audio/Contra_G_Probotector_StageComplete.mp3?raw=true";
+
+		audio.appendChild(emb);
+
 		audio.id = "_30lives";
 		//audio.start = nes.scriptHost + "audio/Contra_G_Probotector_StageComplete.mid";
-		audio.src = "http://nescode.googlecode.com/files/Contra_G_Probotector_StageComplete.mp3";
+	
 		audio.autostart = true; 
-		audio.hidden = true; 
-        audio.type = "audio/mpeg";
+		audio.preload = "auto";
+		audio.hidden = true; 	
+		audio.oncanplay = function(){
+			this.play();
+		};
 		
 		document.getElementsByTagName('body')[0].appendChild( audio );				
 		
