@@ -1,4 +1,4 @@
-#NES Code jsApp
+![image](http://mediahack.github.io/NES-Code/images/nescode_banner.png)
 
 This jsApp will enable NES style cheat codes in your webpage.
 
@@ -20,10 +20,10 @@ A settings JSON object can be passed to the constructor. Multiple codes can be p
      "contra": { code: [40,39,80], callback: "doSomething" }, 
      "superC": {callback: new Cheats().tenLives() }, 
      "goCodeGo": { 
-     	code: [40,39,40,39,80], 
-     	callback: function(){ 
-     		/* INSERT CODE */
-     	} 
+        code: [40,39,40,39,80], 
+        callback: function(){ 
+            /* INSERT CODE */
+        } 
      }
     };
 
